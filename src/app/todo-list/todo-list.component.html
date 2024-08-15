@@ -1,0 +1,27 @@
+<div class="form_wrapper">
+  <form class="todo_form" (submit)="onAddTodoClick()">
+    <mat-form-field>
+      <mat-label>Todo title</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="todoTitleValue"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <button mat-button type="submit">Add Todo</button>
+  </form>
+</div>
+
+<ul class="todo_list">
+  <todo-item
+    *ngFor="let todo of todos"
+    [id]="todo.id"
+    [title]="todo.title"
+    [completed]="todo.completed"
+    [onDeleteClick]="onDeleteClick.bind(this)"
+    [onCompleteClick]="onCompleteClick.bind(this)"
+    [onEditClick]="onEditTodo.bind(this)"
+  />
+</ul>

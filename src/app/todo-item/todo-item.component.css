@@ -1,0 +1,22 @@
+.todo_actions {
+  display: flex;
+  gap: 10px;
+}
+
+.todo_action {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.todo_item {
+  list-style: none;
+}
+
+.todo_title {
+  margin: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}

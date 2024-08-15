@@ -1,0 +1,46 @@
+<li class="todo_item">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <p
+          [contentEditable]="editable"
+          [className]="completed ? 'completed' : ''"
+          (input)="onTitleChange($event)"
+        >{{ title }}</p>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="todo_actions">
+      <div class="todo_action">
+        <mat-checkbox
+          [checked]="completed"
+          (change)="onCheckboxChange($event)"
+        />
+        {{ completed ? "Uncomplete" : "Complete" }}
+      </div>
+      <div class="todo_action">
+        <button mat-icon-button (click)="onDeleteClick({id, title, completed})">
+          <mat-icon fontIcon="delete" />
+        </button>
+        Delete
+      </div>
+      <ng-container *ngIf="editable; else submit">
+        <div class="todo_action">
+          <button mat-icon-button (click)="onSubmitClick(true)">
+            <mat-icon fontIcon="check" />
+          </button>
+          Submit
+        </div>
+      </ng-container>
+      <ng-template #submit>
+        <ng-container>
+          <div class="todo_action">
+            <button mat-icon-button (click)="onSubmitClick(false)">
+              <mat-icon fontIcon="edit" />
+            </button>
+            Edit
+          </div>
+        </ng-container>
+      </ng-template>
+    </mat-card-actions>
+  </mat-card>
+</li>
