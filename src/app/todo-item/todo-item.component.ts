@@ -64,7 +64,7 @@ export class TodoItemComponent {
       this.onEditClick(
         {
           id: this.id,
-          title: this.newValue,
+          title: this.newValue || this.title,
           completed: this.completed,
         },
         this.title
